@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- inherit product template tree view and add new import exel button -->
+        <record id="product_template_tree_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.tree.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="js_class">button_in_tree</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- inherit product template tree view and add new import exel button -->
+        <record id="product_template_kanban_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.kanban.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_kanban_view"/>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="attributes">
+                    <attribute name="js_class">button_in_kanban</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

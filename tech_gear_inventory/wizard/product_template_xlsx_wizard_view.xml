@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_template_xlsx_wizard_form_view" model="ir.ui.view">
+            <field name="name">product.template.xlsx.wizard.form.view</field>
+            <field name="model">product.template.xlsx.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="parent_category_id"/>
+                            <field name="location_id"/>
+                            <field name="xlsx_file" filename="file_name" widget="binary" options="{'accept': '.xlsx'}"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="import_products_from_xlsx_file" string="Import" type="object"
+                                class="btn btn-primary" icon='fa-print'/>
+                        <button string="Cancel" special="cancel" class="btn btn-danger"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_template_xlsx_wizard" model="ir.actions.act_window">
+            <field name="name">Products Import</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template.xlsx.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product_template_xlsx_wizard_form_view"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

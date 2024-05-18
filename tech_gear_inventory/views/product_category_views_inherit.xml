@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- inherit product category form view and add new description field -->
+        <record id="product_category_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.category.form.view.inherit</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group[@name='first']/field[@name='parent_id']"
+                       position="before">
+                    <field name="description" class="oe_inline"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
